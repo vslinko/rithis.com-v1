@@ -4,12 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Rithis Studio LLC</title>
+
+    <!--[if lt IE 9]><script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" href="vendor/fontawesome/css/font-awesome-ie7.css"><![endif]-->
+    <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.css">
+
     <style type="text/css">
         html {
-            background: url("/background.jpg") 50% 65%;
+            background: url("background.jpg") 50% 65%;
         }
 
-        html, body, div {
+        html, body, #logo {
             width: 100%;
             height: 100%;
             margin: 0;
@@ -19,36 +24,69 @@
             display: table;
         }
 
-        div {
+        #logo {
             display: table-cell;
             vertical-align: middle;
             text-align: center;
         }
 
-        a {
+        #logo a {
             display: inline-block;
             width: 354px;
             height: 354px;
-            background: url("/logo.png");
+            background: url("logo.png");
+        }
+
+        #footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            border-radius: 0px 15px 0 0;
+            height: 64px;
+            background: black;
+            font-size: 34px;
+        }
+
+        #footer a {
+            display: block;
+            margin: 15px;
+            float: left;
+            color: white;
+            text-decoration: none;
+        }
+
+        #phone {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: .75;
+            font: 1000% sans-serif;
+            text-align: center;
+            line-height: 3;
+            background: black;
+            color: white;
         }
     </style>
     <style media="only screen and (max-device-width: 768px)" type="text/css">
-        a {
+        #logo a {
             width: 200px;
             height: 200px;
-            background: url("/logo-middle.png");
+            background: url("logo-middle.png");
         }
     </style>
     <style media="only screen and (max-device-width: 480px)" type="text/css">
-        a {
+        #logo a {
             width: 100px;
             height: 100px;
-            background: url("/logo-small.png");
+            background: url("logo-small.png");
         }
     </style>
     <!--[if lt IE 8]>
     <style type="text/css">
-        div {
+        #logo {
             width: 354px;
             margin: 20% auto 0;
         }
@@ -56,10 +94,32 @@
     <![endif]-->
 </head>
 <body>
-<div>
+<div id="logo">
     <a href="mailto:info@rithis.com"></a>
 </div>
+<div id="footer">
+    <a href="mailto:info@rithis.com"><i class="icon-envelope"></i></a>
+    <a href="tel:+74956603920" id="phone-link"><i class="icon-phone"></i></a>
+    <a href="https://github.com/rithis" target="_blank"><i class="icon-github"></i></a>
+</div>
+<div id="phone">
+    (+7 495) 660-39-20
+</div>
 </body>
+<script type="text/javascript">
+    var phoneLink = document.getElementById('phone-link');
+    var phone = document.getElementById('phone');
+    phone.style.display = 'none';
+
+    phoneLink.onclick = function (e) {
+        phone.style.display = phone.style.display == 'none' ? 'block' : 'none';
+        e.preventDefault();
+    };
+
+    phone.onclick = function () {
+        phone.style.display = 'none';
+    };
+</script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function (d, w, c) {
