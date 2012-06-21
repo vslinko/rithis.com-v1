@@ -16,7 +16,8 @@
         "source": "https://github.com/rithis/silex-skeleton"
     },
     "require": {
-        "silex/silex": "dev-master"
+        "silex/silex": "dev-master",
+        "twig/twig": "dev-master"
     },
     "autoload": {
         "psr-0": {

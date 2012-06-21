@@ -1,11 +1,9 @@
-# Silex skeleton
+# rithis.com
 
 ## Installation
 
-    PROJECT_NAME=symfony-skeleton
-    git clone git://github.com/rithis/silex-skeleton.git $PROJECT_NAME
-    cd $PROJECT_NAME
-    git remote set-url origin git://github.com/rithis/$PROJECT_NAME.git
+    git clone git://github.com/rithis/rithis.com.git
+    cd rithis.com
     git remote add silex-skeleton git://github.com/rithis/silex-skeleton.git
     composer.phar install
 
@@ -14,8 +12,8 @@
 ### Apache
 
     <VirtualHost *:80>
-        DocumentRoot /path/to/project/directory
-        ServerName project-name.localhost
+        DocumentRoot /var/www/rithis.com/current
+        ServerName rithis.com
 
         RewriteEngine on
         RewriteCond %{DOCUMENT_ROOT}/web%{REQUEST_URI} !-f
@@ -26,8 +24,8 @@
 ### nginx
 
     server {
-        server_name project-name.localhost;
-        root /path/to/project/directory;
+        server_name rithis.com;
+        root /var/www/rithis.com/current;
 
         location / {
             try_files /web$uri @fallback;

@@ -10,4 +10,12 @@ if (is_readable(__DIR__ . '/config.php')) {
     }
 }
 
+$app->register(new Silex\Provider\TwigServiceProvider(), array(
+    'twig.path' => __DIR__ . '/views',
+));
+
+$app->get('/', function () use ($app) {
+    return $app['twig']->render('who-we-are.twig');
+});
+
 $app->run();

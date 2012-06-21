@@ -1,0 +1,30 @@
+body {
+    background: url("/images/bgnoise.gif");
+    margin-top: 50px;
+    font-family: "PT Sans", sans-serif;
+}
+
+h1, h2 {
+    line-height: 140px;
+}
+
+h2 {
+    text-align: right;
+}
+
+h2 a {
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+#content {
+    background: white;
+    margin-top: 50px;
+    border: 1px solid #d3d3d3;
+    font-size: 150%;
+}
+
+#content div {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
