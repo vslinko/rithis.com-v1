@@ -1,6 +1,6 @@
 set :application, "rithis.com"
 
-set :repository,  "git://github.com/rithis/#{application}.git"
+set :repository, "git://github.com/rithis/#{application}.git"
 set :scm, :git
 
 set :shared_files, ["app/config.php"]
