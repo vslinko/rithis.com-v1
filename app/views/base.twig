@@ -3,7 +3,7 @@
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
 
     <meta property="og:title" content="Rithis Studio LLC" />
     <meta property="og:type" content="company" />
@@ -19,22 +19,31 @@
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap-responsive.min.css" />
 
-    <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=cyrillic" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/css/rithis.css" />
 </head>
 <body>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <ul class="nav">
+                <li><a href="mailto:info@rithis.com"><i class="icon-envelope icon-large"></i> info@rithis.com</a></li>
+                <li><a href="tel:+74956603920"><i class="icon-phone icon-large"></i> +7 495 660-39-20</a></li>
+                <li><a href="https://github.com/rithis"><i class="icon-github icon-large"></i> We <i class="icon-heart"></i> GitHub</a></li>
+                <li><a href="https://elba.kontur.ru/card/rithis"><i class="icon-briefcase icon-large"></i> ООО Студия &laquo;Ритхис&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 <div class="container">
-    <div class="row">
-        <div class="span2">
-            <img src="/images/logo.png" alt="Rithis Studio" />
-        </div>
-        <div class="span4">
-            <h1>Студия Ритхис</h1>
+    <div class="row" id="top">
+        <div class="span6">
+            <h1><img src="/images/logo.png" alt="Rithis Studio" /> Студия Ритхис</h1>
         </div>
         <div class="span2">
-            <h2 class="active">Кто мы?</h2>
+            <h2>Кто мы?</h2>
         </div>
-        <div class="span4">
+        <div class="span4 hidden-phone">
             <h2><a href="#" onclick="return false;">Что мы можем сделать?</a></h2>
         </div>
     </div>
@@ -43,15 +52,11 @@
             {% block content %}{% endblock %}
         </div>
     </div>
-</div>
-<div class="navbar navbar-fixed-bottom">
-    <div class="navbar-inner">
-        <div class="container">
-            <ul class="nav">
-                <li><a href="mailto:info@rithis.com"><i class="icon-envelope icon-large"></i> info@rithis.com</a></li>
-                <li><a href="tel:+74956603920"><i class="icon-phone icon-large"></i> +7 495 660-39-20</a></li>
-                <li><a href="https://github.com/rithis"><i class="icon-github icon-large"></i> rithis</a></li>
-                <li><a href="https://elba.kontur.ru/card/rithis"><i class="icon-tag icon-large"></i> ООО Студия &laquo;Ритхис&raquo;</a></li>
+    <div class="visible-phone">
+        <div class="row well">
+            <ul class="nav nav-list">
+                <li><i class="icon-ok"></i> Кто мы?</li>
+                <li><a href="#" onclick="return false;"><i class="icon-ok"></i> Что мы можем сделать?</a></li>
             </ul>
         </div>
     </div>
