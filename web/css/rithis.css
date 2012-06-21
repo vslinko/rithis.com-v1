@@ -33,6 +33,10 @@ h2 a {
 }
 
 @media (max-width: 767px) {
+    h1 {
+        font-size: 160%;
+    }
+
     h2 {
         line-height: 1;
         text-align: left;
