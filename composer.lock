@@ -1,5 +1,5 @@
 {
-    "hash": "7ea530bbb7a0a2c0d9b314e252418a6c",
+    "hash": "ad2caa7b393e7c353eb4d946de026c66",
     "packages": [
         {
             "package": "pimple/pimple",
@@ -37,7 +37,13 @@
         {
             "package": "symfony/http-foundation",
             "version": "dev-master",
-            "source-reference": "5d15807c883c6a927eb3ac3c04e9a3f62b92e5b4"
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/http-foundation",
+            "version": "dev-master",
+            "source-reference": "a00163103a9628fae03bb101b550302be0249b1b"
         },
         {
             "package": "symfony/http-kernel",
@@ -48,7 +54,13 @@
         {
             "package": "symfony/http-kernel",
             "version": "dev-master",
-            "source-reference": "cca9802587090c5d24ed015437cebdb4e6a770c0"
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/http-kernel",
+            "version": "dev-master",
+            "source-reference": "9677d2e7f972493e697eb1975ebbdc547020f0f8"
         },
         {
             "package": "symfony/routing",
@@ -59,7 +71,23 @@
         {
             "package": "symfony/routing",
             "version": "dev-master",
-            "source-reference": "9e0b9b0d4143a6b90752e1111d9948416ef62b50"
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/routing",
+            "version": "dev-master",
+            "source-reference": "5ae64e509722bc78ab15b3028f90ccf2233a46b5"
+        },
+        {
+            "package": "symfony/translation",
+            "version": "dev-master",
+            "source-reference": "db3e85934353a130d743b2ddd53dd678c8ebca12"
+        },
+        {
+            "package": "symfony/twig-bridge",
+            "version": "dev-master",
+            "source-reference": "97752ed347a8466bb33c70cfb8ddbc00b6e70512"
         },
         {
             "package": "twig/twig",
@@ -80,6 +108,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "silex/silex": 20,
-        "twig/twig": 20
+        "twig/twig": 20,
+        "symfony/translation": 20,
+        "symfony/twig-bridge": 20
     }
 }

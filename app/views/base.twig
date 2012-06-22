@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no" />
 
-    <meta property="og:title" content="Rithis Studio LLC" />
+    <meta property="og:title" content="{{ "Rithis Studio LLC"|trans }}" />
     <meta property="og:type" content="company" />
     <meta property="og:url" content="http://rithis.com/" />
     <meta property="og:image" content="http://rithis.com/images/logo.png" />
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap-responsive.min.css" />
 
-    <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/css/rithis.css" />
 </head>
 <body>
@@ -29,8 +29,15 @@
             <ul class="nav">
                 <li><a href="mailto:info@rithis.com"><i class="icon-envelope icon-large"></i> info@rithis.com</a></li>
                 <li><a href="tel:+74956603920"><i class="icon-phone icon-large"></i> +7 495 660-39-20</a></li>
-                <li><a href="https://github.com/rithis"><i class="icon-github icon-large"></i> We <i class="icon-heart"></i> GitHub</a></li>
-                <li><a href="https://elba.kontur.ru/card/rithis"><i class="icon-briefcase icon-large"></i> ООО Студия &laquo;Ритхис&raquo;</a></li>
+                <li><a href="https://github.com/rithis"><i class="icon-github icon-large"></i> {{ "We %love% Github"|trans({'%love%': '<i class="icon-heart"></i>'})|raw }}</a></li>
+                <li><a href="https://elba.kontur.ru/card/rithis"><i class="icon-briefcase icon-large"></i> {{ "Rithis Studio LLC"|trans }}</a></li>
+            </ul>
+            <ul class="nav pull-right">
+                {% if app.locale == 'en' %}
+                <li><a href="{{ path(app.request.attributes.get('_route'), {_locale: 'ru'}) }}"><i class="icon-globe icon-large"></i> На русском</a></li>
+                {% else %}
+                <li><a href="{{ path(app.request.attributes.get('_route'), {_locale: 'en'}) }}"><i class="icon-globe icon-large"></i> In English</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
@@ -38,36 +45,36 @@
 <div class="container">
     <div class="row" id="top">
         <div class="span5">
-            <h1><img src="/images/logo.png" alt="Rithis Studio" /> Студия Ритхис</h1>
+            <h1><img src="/images/logo.png" alt="Rithis Studio" /> {{ "Rithis Studio"|trans }}</h1>
         </div>
 
         {% if app.request.attributes.get('_route') == 'who_we_are' %}
         <div class="span2">
-            <h2>Кто мы</h2>
+            <h2>{{ "Who we are"|trans }}</h2>
         </div>
         {% else %}
         <div class="span2 hidden-phone">
-            <h2><a href="/about">Кто мы</a></h2>
+            <h2><a href="{{ path("who_we_are") }}">{{ "Who we are"|trans }}</a></h2>
         </div>
         {% endif %}
 
         {% if app.request.attributes.get('_route') == 'what_we_offer' %}
         <div class="span3">
-            <h2>Что мы предлагаем</h2>
+            <h2>{{ "What we offer"|trans }}</h2>
         </div>
         {% else %}
         <div class="span3 hidden-phone">
-            <h2><a href="/services">Что мы предлагаем</a></h2>
+            <h2><a href="{{ path("what_we_offer") }}">{{ "What we offer"|trans }}</a></h2>
         </div>
         {% endif %}
 
         {% if app.request.attributes.get('_route') == 'our_tags' %}
         <div class="span2">
-            <h2>Наши теги</h2>
+            <h2>{{ "Our tags"|trans }}</h2>
         </div>
         {% else %}
         <div class="span2 hidden-phone">
-            <h2><a href="/tags">Наши теги</a></h2>
+            <h2><a href="{{ path("our_tags") }}">{{ "Our tags"|trans }}</a></h2>
         </div>
         {% endif %}
     </div>
@@ -81,23 +88,23 @@
             <ul class="nav nav-list">
                 <li>
                     {% if app.request.attributes.get('_route') == 'who_we_are' %}
-                    <i class="icon-ok"></i> Кто мы
+                    <i class="icon-ok"></i> {{ "Who we are"|trans }}
                     {% else %}
-                    <a href="/about"><i class="icon-ok"></i> Кто мы</a>
+                    <a href="{{ path("who_we_are") }}"><i class="icon-ok"></i> {{ "Who we are"|trans }}</a>
                     {% endif %}
                 </li>
                 <li>
                     {% if app.request.attributes.get('_route') == 'what_we_offer' %}
-                    <i class="icon-ok"></i> Что мы предлагаем
+                    <i class="icon-ok"></i> {{ "What we offer"|trans }}
                     {% else %}
-                    <a href="/services"><i class="icon-ok"></i> Что мы предлагаем</a>
+                    <a href="{{ path("what_we_offer") }}"><i class="icon-ok"></i> {{ "What we offer"|trans }}</a>
                     {% endif %}
                 </li>
                 <li>
                     {% if app.request.attributes.get('_route') == 'our_tags' %}
-                    <i class="icon-ok"></i> Наши теги
+                    <i class="icon-ok"></i> {{ "Our tags"|trans }}
                     {% else %}
-                    <a href="/tags"><i class="icon-ok"></i> Наши теги</a>
+                    <a href="{{ path("our_tags") }}"><i class="icon-ok"></i> {{ "Our tags"|trans }}</a>
                     {% endif %}
                 </li>
             </ul>
