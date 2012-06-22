@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://rithis.com/en/about</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>http://rithis.com/en/services</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>http://rithis.com/en/tags</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>http://rithis.com/ru/about</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>http://rithis.com/ru/services</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>http://rithis.com/ru/tags</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+</urlset>
