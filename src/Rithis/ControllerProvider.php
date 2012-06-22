@@ -43,6 +43,7 @@ class ControllerProvider implements ControllerProviderInterface
                     'Bootstrap' => 'http://twitter.github.com/bootstrap',
                     'HTML5' => 'http://www.w3.org/TR/html5/',
                     'CSS3' => 'http://www.w3.org/Style/CSS/',
+                    'Responsive Web Design' => 'http://alistapart.com/articles/responsive-web-design'
                 ),
                 'Server Management' => array(
                     'NGINX' => 'http://nginx.com',

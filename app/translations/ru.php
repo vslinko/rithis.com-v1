@@ -15,4 +15,5 @@ return array(
     'Continuous Integration and Deployment' => 'Continuous Integration и Deployment',
     'Project Management' => 'Управление проектами',
     'Certifications' => 'Сертификации',
+    'Responsive Web Design' => 'Адаптивный веб-дизайн',
 );
