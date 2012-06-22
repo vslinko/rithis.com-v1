@@ -47,13 +47,19 @@
         </div>
         {% else %}
         <div class="span2 hidden-phone">
-            <h2><a href="/">Кто мы</a></h2>
+            <h2><a href="/about">Кто мы</a></h2>
         </div>
         {% endif %}
 
-        <div class="span3 hidden-phone">
-            <h2><a href="#" onclick="return false;">Что мы предлагаем</a></h2>
+        {% if app.request.attributes.get('_route') == 'what_we_offer' %}
+        <div class="span3">
+            <h2>Что мы предлагаем</h2>
         </div>
+        {% else %}
+        <div class="span3 hidden-phone">
+            <h2><a href="/services">Что мы предлагаем</a></h2>
+        </div>
+        {% endif %}
 
         {% if app.request.attributes.get('_route') == 'our_tags' %}
         <div class="span2">
@@ -77,10 +83,16 @@
                     {% if app.request.attributes.get('_route') == 'who_we_are' %}
                     <i class="icon-ok"></i> Кто мы
                     {% else %}
-                    <a href="/"><i class="icon-ok"></i> Кто мы</a>
+                    <a href="/about"><i class="icon-ok"></i> Кто мы</a>
                     {% endif %}
                 </li>
-                <li><a href="#" onclick="return false;"><i class="icon-ok"></i> Что мы предлагаем</a></li>
+                <li>
+                    {% if app.request.attributes.get('_route') == 'what_we_offer' %}
+                    <i class="icon-ok"></i> Что мы предлагаем
+                    {% else %}
+                    <a href="/services"><i class="icon-ok"></i> Что мы предлагаем</a>
+                    {% endif %}
+                </li>
                 <li>
                     {% if app.request.attributes.get('_route') == 'our_tags' %}
                     <i class="icon-ok"></i> Наши теги

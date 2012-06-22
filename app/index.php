@@ -15,8 +15,16 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 $app->get('/', function () use ($app) {
+    return $app->redirect('/about');
+});
+
+$app->get('/about', function () use ($app) {
     return $app['twig']->render('who-we-are.twig');
 })->bind('who_we_are');
+
+$app->get('/services', function () use ($app) {
+    return $app['twig']->render('what-we-offer.twig');
+})->bind('what_we_offer');
 
 $app->get('/tags', function () use ($app) {
     $tags = array(
