@@ -37,26 +37,57 @@
 </div>
 <div class="container">
     <div class="row" id="top">
-        <div class="span6">
+        <div class="span5">
             <h1><img src="/images/logo.png" alt="Rithis Studio" /> Студия Ритхис</h1>
         </div>
+
+        {% if app.request.attributes.get('_route') == 'who_we_are' %}
         <div class="span2">
-            <h2>Кто мы?</h2>
+            <h2>Кто мы</h2>
         </div>
-        <div class="span4 hidden-phone">
-            <h2><a href="#" onclick="return false;">Что мы можем сделать?</a></h2>
+        {% else %}
+        <div class="span2 hidden-phone">
+            <h2><a href="/">Кто мы</a></h2>
         </div>
+        {% endif %}
+
+        <div class="span3 hidden-phone">
+            <h2><a href="#" onclick="return false;">Что мы предлагаем</a></h2>
+        </div>
+
+        {% if app.request.attributes.get('_route') == 'our_tags' %}
+        <div class="span2">
+            <h2>Наши теги</h2>
+        </div>
+        {% else %}
+        <div class="span2 hidden-phone">
+            <h2><a href="/tags">Наши теги</a></h2>
+        </div>
+        {% endif %}
     </div>
-    <div class="row" id="content">
-        <div class="offset2">
+    <div class="container">
+        <div id="content">
             {% block content %}{% endblock %}
         </div>
     </div>
     <div class="visible-phone">
         <div class="row well">
             <ul class="nav nav-list">
-                <li><i class="icon-ok"></i> Кто мы?</li>
-                <li><a href="#" onclick="return false;"><i class="icon-ok"></i> Что мы можем сделать?</a></li>
+                <li>
+                    {% if app.request.attributes.get('_route') == 'who_we_are' %}
+                    <i class="icon-ok"></i> Кто мы
+                    {% else %}
+                    <a href="/"><i class="icon-ok"></i> Кто мы</a>
+                    {% endif %}
+                </li>
+                <li><a href="#" onclick="return false;"><i class="icon-ok"></i> Что мы предлагаем</a></li>
+                <li>
+                    {% if app.request.attributes.get('_route') == 'our_tags' %}
+                    <i class="icon-ok"></i> Наши теги
+                    {% else %}
+                    <a href="/tags"><i class="icon-ok"></i> Наши теги</a>
+                    {% endif %}
+                </li>
             </ul>
         </div>
     </div>

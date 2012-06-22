@@ -1,0 +1,11 @@
+{% extends "base.twig" %}
+
+{% block content %}
+{% for group, tags in tags %}
+<p><span class="tag-label">{{ group }}:</span>
+    {% for tag, url in tags %}
+        <a href="{{ url }}" target="_blank"><span class="label label-info">{{ tag }}</span></a>{% if not loop.last %},{% endif %}
+    {% endfor %}
+</p>
+{% endfor %}
+{% endblock %}

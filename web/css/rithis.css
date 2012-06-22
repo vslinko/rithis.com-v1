@@ -9,6 +9,7 @@ h1, h2 {
 
 h2 {
     text-align: right;
+    font-size: 140%;
 }
 
 h2 a {
@@ -23,13 +24,8 @@ h2 a {
     background: white;
     margin-top: 50px;
     margin-bottom: 10px;
+    padding: 50px 20px 50px 145px;
     border: 1px solid #d3d3d3;
-    font-size: 150%;
-}
-
-#content div {
-    margin-top: 50px;
-    margin-bottom: 50px;
 }
 
 @media (max-width: 767px) {
@@ -49,19 +45,26 @@ h2 a {
 
     #content {
         margin-top: 10px;
+        padding-left: 20px;
     }
 
-    .offset2 {
-        margin-left: 20px;
+    .tag-label {
+        display: block;
     }
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
-    h2 {
+    h1 {
         font-size: 160%;
     }
 
     #top {
         margin-top: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    h2 {
+        font-size: 200%;
     }
 }
