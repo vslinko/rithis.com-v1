@@ -32,7 +32,7 @@
                 <li><a href="https://github.com/rithis"><i class="icon-github icon-large"></i> {{ "We %love% Github"|trans({'%love%': '<i class="icon-heart"></i>'})|raw }}</a></li>
                 <li><a href="https://elba.kontur.ru/card/rithis"><i class="icon-briefcase icon-large"></i> {{ "Rithis Studio LLC"|trans }}</a></li>
             </ul>
-            <ul class="nav pull-right">
+            <ul class="nav pull-right hidden-phone">
                 {% if app.locale == 'en' %}
                 <li><a href="{{ path(app.request.attributes.get('_route'), {_locale: 'ru'}) }}"><i class="icon-globe icon-large"></i> На русском</a></li>
                 {% else %}
@@ -107,6 +107,12 @@
                     <a href="{{ path("our_tags") }}"><i class="icon-ok"></i> {{ "Our tags"|trans }}</a>
                     {% endif %}
                 </li>
+                <li class="divider"></li>
+                {% if app.locale == 'en' %}
+                <li><a href="{{ path(app.request.attributes.get('_route'), {_locale: 'ru'}) }}"><i class="icon-globe"></i> На русском</a></li>
+                {% else %}
+                <li><a href="{{ path(app.request.attributes.get('_route'), {_locale: 'en'}) }}"><i class="icon-globe"></i> In English</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
