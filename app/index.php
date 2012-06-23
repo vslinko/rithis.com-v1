@@ -49,4 +49,5 @@ if (isset($config) && is_array($config)) {
     }
 }
 
+$app['session']->start();
 $app->run();

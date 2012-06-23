@@ -65,8 +65,6 @@ class ControllerProvider implements ControllerProviderInterface
                         ->addTo('manager@rithis.com')
                         ->setBody($msg);
 
-                    $app['session']->start();
-
                     if ($app['mailer']->send($message) == 1) {
                         $app['session']->setFlash('success', 'Your order successfully sent');
                     } else {
