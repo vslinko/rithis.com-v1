@@ -4,6 +4,8 @@ namespace Rithis;
 
 use Silex\Application;
 use Silex\ControllerProviderInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class ControllerProvider implements ControllerProviderInterface
 {
@@ -19,8 +21,65 @@ class ControllerProvider implements ControllerProviderInterface
             return $app['twig']->render('who-we-are.twig');
         })->bind('who_we_are');
 
-        $controllers->get('/services', function () use ($app) {
-            return $app['twig']->render('what-we-offer.twig');
+        $controllers->match('/services', function (Request $request) use ($app) {
+            $form = $app['form.factory']->createBuilder('form')
+                ->add('name', 'text', array(
+                    'constraints' => new Assert\NotBlank(array(
+                        'message' => 'We need to know your name',
+                    )),
+                ))
+                ->add('company', 'text')
+                ->add('email', 'text', array(
+                    'constraints' => array(new Assert\NotBlank(array(
+                        'message' => 'No mail, we will tell you nothing',
+                    )), new Assert\Email(array(
+                        'message' => 'Invalid e-mail',
+                    ))),
+                ))
+                ->add('message', 'textarea', array(
+                    'attr' => array('rows' => 6, 'class' => 'input-xlarge'),
+                    'constraints' => array(new Assert\NotBlank(array(
+                        'message' => 'Describe what are you need'
+                    )), new Assert\MinLength(array(
+                        'limit' => 10,
+                        'message' => 'We need more information',
+                    ))),
+                ))
+                ->getForm();
+
+            if ('POST' == $request->getMethod()) {
+                $form->bindRequest($request);
+
+                if ($form->isValid()) {
+                    $data = $form->getData();
+
+                    $msg = '';
+                    foreach (array('Name', 'Email', 'Company', 'Message') as $field) {
+                        $msg .= $app['translator']->trans($field) . ":\n";
+                        $msg .= $data[strtolower($field)] . "\n\n";
+                    }
+
+                    $message = \Swift_Message::newInstance()
+                        ->setSubject($app['translator']->trans('Order'))
+                        ->addFrom($data['email'], $data['name'] . ' (' . $data['company'] . ')')
+                        ->addTo('manager@rithis.com')
+                        ->setBody($msg);
+
+                    $app['session']->start();
+
+                    if ($app['mailer']->send($message) == 1) {
+                        $app['session']->setFlash('success', 'Your order successfully sent');
+                    } else {
+                        $app['session']->setFlash('error', 'Sorry, unknown problem with your order, please use phone or e-mail');
+                    }
+
+                    return $app->redirect($app['url_generator']->generate('what_we_offer'));
+                }
+            }
+
+            return $app['twig']->render('what-we-offer.twig', array(
+                'form' => $form->createView(),
+            ));
         })->bind('what_we_offer');
 
         $controllers->get('/tags', function () use ($app) {

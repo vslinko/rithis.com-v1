@@ -19,7 +19,11 @@
         "silex/silex": "dev-master",
         "twig/twig": "dev-master",
         "symfony/translation": "dev-master",
-        "symfony/twig-bridge": "dev-master"
+        "symfony/twig-bridge": "dev-master",
+        "symfony/form": "dev-master",
+        "symfony/validator": "dev-master",
+        "symfony/config": "dev-master",
+        "swiftmailer/swiftmailer": "dev-master"
     },
     "autoload": {
         "psr-0": {

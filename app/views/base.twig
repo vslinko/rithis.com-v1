@@ -79,9 +79,19 @@
         {% endif %}
     </div>
     <div class="container">
-        <div id="content">
+        {% for type in ['error', 'success'] %}
+        {% if app.session.hasFlash(type) %}
+        <div class="alert alert-{{ type }}">
+            {{ app.session.getFlash(type)|trans }}
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        {% block container %}
+        <div class="content content-offset">
             {% block content %}{% endblock %}
         </div>
+        {% endblock %}
     </div>
     <div class="visible-phone">
         <div class="row well">

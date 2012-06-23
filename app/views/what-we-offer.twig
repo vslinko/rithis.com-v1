@@ -1,5 +1,38 @@
 {% extends "base.twig" %}
 
-{% block content %}
-<h3>{{ "Sorry but website in developing"|trans }}</h3>
-{% endblock%}
+{% form_theme form _self %}
+
+{% block form_errors %}
+{% if errors %}
+<span class="help-inline">
+    {% for error in errors %}
+    {{ error.message|trans }}
+    {% endfor %}
+</span>
+{% endif %}
+{% endblock %}
+
+{% block form_row %}
+<div class="control-group{% if errors %} error{% endif %}">
+    {{ form_label(form, label, {label_attr: {class: 'control-label'}}) }}
+    <div class="controls">
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+    </div>
+</div>
+{% endblock %}
+
+{% block container %}
+<div class="content content-offset">
+    <h4>{{ "Sorry but website in developing"|trans }}</h4>
+</div>
+<h3>{{ "Make order now"|trans }}</h3>
+<div class="content">
+    <form action="{{ path("what_we_offer") }}" method="post" class="form-horizontal">
+        {{ form_widget(form) }}
+        <div class="form-actions">
+            <input type="submit" class="btn btn-primary" value="{{ "Make order"|trans }}" />
+        </div>
+    </form>
+</div>
+{% endblock %}
