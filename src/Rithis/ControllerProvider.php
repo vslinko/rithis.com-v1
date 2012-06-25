@@ -107,6 +107,7 @@ class ControllerProvider implements ControllerProviderInterface
                     'Ubuntu' => 'http://www.ubuntu.com',
                     'KVM' => 'http://www.linux-kvm.org/page/Main_Page',
                     'AWS' => 'http://aws.amazon.com',
+                    'php-fpm' => 'http://us.php.net/manual/en/install.fpm.php',
                 ),
                 'Databases' => array(
                     'MySQL' => 'http://www.mysql.com',
